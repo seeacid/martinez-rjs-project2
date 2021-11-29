@@ -1,0 +1,89 @@
+
+.headder-wrapper {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+.headder-wrapper a {
+    color: white;
+}
+
+
+.logo-wrapper img {
+    width: 80px;
+    display: inline-block;
+}
+
+.logo-wrapper p {
+    font-family: 'Oswald', sans-serif;
+    padding-left: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 20pt;
+}
+
+.logo {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+}
+
+nav {
+    padding: 1rem;
+    font-size: 14pt;
+    padding-right: 6rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+    font-family: arial;
+    color: White;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+nav a:hover {
+    color: rgb(161, 161, 161);
+}
+
+@media (max-width: 700px) {
+    .headder-wrapper {
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100vw;
+    }
+    nav {
+        padding: 1rem;
+        padding-right: 0rem;
+        font-size: 14pt;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+    .logo-wrapper img {
+        margin-top: 1rem;
+        width: 80px;
+        display: block;
+        margin: auto;
+    }
+    .logo-wrapper p {
+        font-family: 'Oswald', sans-serif;
+        padding-left: 1rem;
+        font-weight: bold;
+        display: block;
+        font-size: 20pt;
+        text-align: center;
+    }
+}

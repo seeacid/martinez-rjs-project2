@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box  ;
+}
+
+.itemDetailWrapper{
+
+    background-color:white;
+    border: 3px rgb(0, 0, 0) solid;
+    width: 70vw;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif   ;
+    margin: 3rem;
+    text-align: center;
+
+}
+
+.itemDetailImg{
+    width: 30rem;  
+    max-width: 70%; 
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.itemDetailTitle{
+    margin-top: 1rem;
+    max-width: 100%;
+}
+
+.itemDetailList{
+    margin: 1rem;
+}
+
+.itemDetailList li{
+    list-style: none;
+    font-style: italic;
+}
+
+.itemDetailButton{
+    background-color: rgb(0, 0, 0);
+    margin: 1rem;
+    padding: .5rem;
+    border-radius: 7px;
+    border: none;
+    outline:none;
+    color: white;
+}

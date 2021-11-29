@@ -1,0 +1,36 @@
+.greetings {
+    background-color: black;
+    width: 80vw;
+    height: auto;
+    margin: auto;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+}
+
+
+
+
+.loader {
+    background-color: black;
+    width: 80vw;
+    height: auto;
+    margin: auto;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+}
+
+
+.loader img {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
