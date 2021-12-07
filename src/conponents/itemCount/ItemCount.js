@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import {useAddtoCartx} from '../context/CartContext'
 import "./index.css"
 
 
 
-export function ItemCount({stock,initial,addToCart}){
+export function ItemCount({stock,item,addToCart}){
     
     const stockItems = stock
-    const [stateItem, setStateItem]= useState(initial)
+    const [stateItem, setStateItem]= useState(0)
+
+
+
+    const addToCartx = useAddtoCartx()
 
     const addState = () => {
         if(stateItem<stockItems){
@@ -34,7 +39,7 @@ export function ItemCount({stock,initial,addToCart}){
             <p className="itemcount"> {stateItem}    </p>
             
             <button onClick={addState} className="addButton">+</button>
-            <button className="itemDetailButton" disabled={stateItem === 0} onClick={()=>addToCart(stateItem)}>Agregar al carrito</button>
+            <button className="itemDetailButton" disabled={stateItem === 0} onClick={()=>addToCartx(item,stateItem)}>Agregar al carrito</button>
 
         </div>
     )

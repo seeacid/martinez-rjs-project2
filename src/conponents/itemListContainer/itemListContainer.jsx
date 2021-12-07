@@ -18,7 +18,7 @@ export function ItemListContainer(props){
         const bringProducts = new Promise ((resolve, reject) =>{
             setTimeout( ()=> {
                 resolve(products)
-            },2000)
+            },200)
         })
 
         bringProducts

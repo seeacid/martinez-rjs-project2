@@ -11,7 +11,9 @@ export const products = [
         stock: 12,
         id: "1",
         img: im1,
-        category: "news"
+        category: "news",
+        onCart: 0
+        
     }
 
     ,
@@ -21,7 +23,9 @@ export const products = [
         stock: 12,
         id: "2",
         img: im2,
-        category: "news"
+        category: "news",
+        onCart: 0
+        
     }
     ,
     {
@@ -30,7 +34,9 @@ export const products = [
         stock: 12,
         id: "3",
         img: im3,
-        category: "sale"
+        category: "sale",
+        onCart: 0
+        
     }
     ,
     {
@@ -39,7 +45,9 @@ export const products = [
         stock: 12,
         id: "4",
         img: im4,
-        category: "sale"
+        category: "sale",
+        onCart: 0
+        
     }
     ,
     {
@@ -48,6 +56,8 @@ export const products = [
         stock: 12,
         id: "5",
         img: im5,
-        category: "sale"
+        category: "sale",
+        onCart: 0
+        
     }
 ]

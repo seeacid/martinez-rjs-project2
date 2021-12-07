@@ -19,7 +19,7 @@ export const ItemDetailContainer = () => {
         const getProduct = new Promise( (res) => {
             setTimeout ( () => {
                 res(products)
-            },2000)
+            },200)
         })
 
         getProduct.then( (result) => {

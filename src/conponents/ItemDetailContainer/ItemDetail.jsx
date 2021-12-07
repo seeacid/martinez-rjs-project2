@@ -4,7 +4,7 @@ import { NavLink , Link } from "react-router-dom";
 
 import "./ItemDetail.css"
 
-export const ItemDetail = ({id , name , img , price, stock ,addToCart , goCart}) => {
+export const ItemDetail = ({id , name , img , price, stock,cartCount ,addToCart , goCart}) => {
 
 
     return(
@@ -23,7 +23,7 @@ export const ItemDetail = ({id , name , img , price, stock ,addToCart , goCart})
             <p>Unidades disponibles:{stock}</p>
             {goCart ? (<> <Link to="/cart"> <button className="itemDetailButton">Terminar Compra</button> </Link> </>)
             :
-            (<> <ItemCount stock={stock} initial={0} addToCart={addToCart} /> </>)}
+            (<> <ItemCount item={{id,name,img,price,stock,cartCount}} stock={stock} initial={0} addToCart={addToCart} /> </>)}
             
         </div>
     )
