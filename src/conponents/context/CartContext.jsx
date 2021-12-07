@@ -14,22 +14,23 @@ export function CartProvider( {children} ){
 
     const addToCartx = (product,count) => {
         if(isOnCart(product) === -1){
-            product.onCart = count
+            product.onCart=count
             setOnCarItems(onCarItems.concat(product))
             
         }else{
-           for(let i = 0; i < onCarItems.length; i++){
+            for(let i = 0; i < onCarItems.length; i++){
                 console.log(onCarItems[i])
-                if(onCarItems[i].id === product.id){
-                     product.onCart = "asd"
+                if(onCarItems[i].id === product[i].id){
+                    let newcount = onCarItems[i].onCart + count
+                    onCarItems[i].onCart = newcount
+                    console.log(onCaritems[i].onCart)
+
                 }
            }
+            
         }
 
-        
     }
-
-
 
     const deleteProduct = (product)=> {
 
