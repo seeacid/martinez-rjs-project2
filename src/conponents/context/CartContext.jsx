@@ -19,12 +19,8 @@ export function CartProvider( {children} ){
             
         }else{
             for(let i = 0; i < onCarItems.length; i++){
-                console.log(onCarItems[i])
-                if(onCarItems[i].id === product[i].id){
-                    let newcount = onCarItems[i].onCart + count
-                    onCarItems[i].onCart = newcount
-                    console.log(onCaritems[i].onCart)
-
+                if(onCarItems[i].id === product.id){
+                    onCarItems[i].onCart += count
                 }
            }
             
