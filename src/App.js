@@ -9,8 +9,9 @@ import {CartProvider} from "./conponents/context/CartContext"
 function App() {
     return (
         <BrowserRouter>
-            <Header />
             <CartProvider>
+                <Header />
+
 
                 <Routes>
 

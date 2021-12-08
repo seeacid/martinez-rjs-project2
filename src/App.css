@@ -5,3 +5,53 @@
     padding: 0;
 }
 
+table{
+    border-bottom: rgb(255, 255, 255) 1px solid;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: auto;
+    
+}
+
+.titlerow{
+    
+    width: 60vw;
+    margin: 0;
+    padding: 0;
+}
+
+
+.addBtn{
+    display: inline-block;
+    background-color: white;
+    box-shadow: none;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+}
+
+.countNum{
+    display: inline-block;
+}
+
+.removeBtn{
+    border-radius: 50px;
+    width: 2rem;
+    height: 2rem;
+    box-shadow: none;
+    border: 1px black solid;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+tr{
+    border: 1px solid black;
+
+}
+
+th{
+    width: 15vw;
+    margin: 0;
+    padding: 0;
+}
+
+
