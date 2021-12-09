@@ -97,10 +97,10 @@ export function CartProvider( {children} ){
         setCarViewQnt(carViewQnt - product.onCart)
         if(onCarItems.length===1){
             setCarDisplay(false)
-            changeBtnStatus(product)
-
+            setBtnState(false)
 
         }
+
         
     }
 
