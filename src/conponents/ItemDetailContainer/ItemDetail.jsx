@@ -1,11 +1,14 @@
 import React from 'react'
 import { ItemCount } from '../itemCount/ItemCount'
-import { NavLink , Link } from "react-router-dom";
+import { NavLink , Link ,} from "react-router-dom";
+import {useBtnState} from "../context/CartContext"
 
 import "./ItemDetail.css"
 
+
 export const ItemDetail = ({id , name , img , price, stock,cartCount ,addToCart , goCart}) => {
 
+   let btnState = useBtnState()
 
     return(
         <div className="itemDetailWrapper">
@@ -21,7 +24,7 @@ export const ItemDetail = ({id , name , img , price, stock,cartCount ,addToCart 
 
             <h2>${price}</h2>
             <p>Unidades disponibles:{stock}</p>
-            {goCart ? (<> <Link to="/cart"> <button className="itemDetailButton">Terminar Compra</button> </Link> </>)
+            {btnState ? (<> <Link to="/cart"> <button className="itemDetailButton">Terminar Compra</button> </Link> </>)
             :
             (<> <ItemCount item={{id,name,img,price,stock,cartCount}} stock={stock} initial={0} addToCart={addToCart} /> </>)}
             

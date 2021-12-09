@@ -9,6 +9,8 @@ export function CartProvider( {children} ){
     const [totalPrice , setTotalPrice] = useState(0)
     const [carViewQnt , setCarViewQnt] = useState(0)
     const [carDisplay , setCarDisplay] = useState(false)
+    const [btnState , setBtnState] = useState(false)
+
 
     const isOnCart = (product)=> {
         return onCarItems?.findIndex(item=> item.id === product.id)
@@ -20,9 +22,7 @@ export function CartProvider( {children} ){
         let total = 0
         for (let i = 0; i < onCarItems.length; i++) {
             total = total + onCarItems[i].price*onCarItems[i].onCart
-            console.log(total)
             setTotalPrice(total)
-            console.log(`totalprice ${totalPrice}`)
         }
     }
 
@@ -47,6 +47,7 @@ export function CartProvider( {children} ){
 
         cartViewCount(product)
         upCarDisplay()
+        setBtnState(true)
 
 
         
@@ -71,7 +72,6 @@ export function CartProvider( {children} ){
             
                 onCarQnt+=onCarItems[i].onCart 
                 setCarViewQnt(onCarQnt)
-                console.log(onCarQnt)      
             }
         }
 
@@ -89,20 +89,20 @@ export function CartProvider( {children} ){
         setCarViewQnt(carViewQnt - product.onCart)
         if(onCarItems.length===1){
             setCarDisplay(false)
-            console.log(onCarItems.length)
+            setBtnState(false)
+
+
         }
         
     }
 
     const addOne = (product)=>{
-        console.log(product)
         product.onCart+=1        
         setOnCarAdd(product.onCart)
         cartViewCount(product)
     }
 
     const removeOne =(product)=>{
-        console.log(product)
         product.onCart-=1        
         setOnCarAdd(product.onCart)
         if(product.onCart===0){
@@ -120,7 +120,7 @@ export function CartProvider( {children} ){
     
 
     return(
-        <CarContext.Provider value={{addToCartx , onCarItems ,deleteProduct,totalPrice,addTotalPrice,addOne,removeOne, cartViewCount ,carViewQnt, carDisplay}}>
+        <CarContext.Provider value={{addToCartx , onCarItems ,deleteProduct,totalPrice,addTotalPrice,addOne,removeOne, cartViewCount ,carViewQnt, carDisplay, btnState}}>
             {children}
         </CarContext.Provider>
     )
@@ -180,5 +180,12 @@ export function useCarViewQnt(){
 export function useCarDisplay(){
     return useContext(CarContext).carDisplay
 }
+
+export function useBtnState(){
+    return useContext(CarContext).btnState
+}
+
+
+
 
 export default CarContext

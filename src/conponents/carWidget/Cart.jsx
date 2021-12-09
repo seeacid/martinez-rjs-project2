@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
-import { useOnCarItems ,useDeleteProduct,useAddTotalPrice,useTotalPrice,useAddOne, useRemoveOne} from '../context/CartContext'
+import { useOnCarItems ,useDeleteProduct,useAddTotalPrice,useTotalPrice,useAddOne, useRemoveOne,useCarViewQnt} from '../context/CartContext'
 import "./Cart.css"
+import { Link } from 'react-router-dom'
+
+
+
 
 export function Cart(){
 
@@ -11,13 +15,18 @@ export function Cart(){
     const totalPrice = useTotalPrice()
     const addOne = useAddOne()
     const removeOne = useRemoveOne()
-    
+    const carViewQnt = useCarViewQnt()
+
+
+    let coco = true
     addTotalPrice()
+
+    const addTo = ()=>{
+        console.log(carViewQnt)
+    }
    
 
-    return(
-
-        
+    return  carViewQnt ? (
         <div className="greetings">
             <table>
                             <thead>
@@ -70,7 +79,18 @@ export function Cart(){
 
              <h2>TOTAL :{totalPrice}</h2>
         </div>
+    ) : (
+        <div className="greetings">
+            <h1>El Carro esta vacio</h1> 
+            <Link to="/" className="logo-wrapper">
+
+                <h2>Volver al Inicio</h2>    
+            </Link>       
+        </div>
     )
+
+        
+    
 }
 
 
