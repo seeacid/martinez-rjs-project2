@@ -47,12 +47,20 @@ export function CartProvider( {children} ){
 
         cartViewCount(product)
         upCarDisplay()
-        setBtnState(true)
-
+        changeBtnStatus(product)
 
         
     }
 
+
+    const changeBtnStatus = (product)=>{
+        if(product.onCart !== 0){
+            setBtnState(true)
+
+        }else{
+            setBtnState(false)
+        }
+    }
 
     //REVISAR /////////////////////////////////////////////////////////////
 
@@ -89,7 +97,7 @@ export function CartProvider( {children} ){
         setCarViewQnt(carViewQnt - product.onCart)
         if(onCarItems.length===1){
             setCarDisplay(false)
-            setBtnState(false)
+            changeBtnStatus(product)
 
 
         }
@@ -131,6 +139,10 @@ export function CartProvider( {children} ){
    
 
     
+}
+
+export function useBtnState(){
+    return useContext(CarContext).btnState
 }
 
 export function useAddtoCartx() {
@@ -181,9 +193,7 @@ export function useCarDisplay(){
     return useContext(CarContext).carDisplay
 }
 
-export function useBtnState(){
-    return useContext(CarContext).btnState
-}
+
 
 
 
