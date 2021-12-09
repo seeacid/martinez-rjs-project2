@@ -12,7 +12,7 @@ import {useOnCarItems , useCartViewCount , useCarViewQnt} from "../context/CartC
 export function Header(){
 
     const onCarItems = useOnCarItems()
-    const carViewQnt = useCarViewQnt()
+    
 
     return(
         <header className="headder-wrapper">
@@ -25,7 +25,6 @@ export function Header(){
                 <Link to="/category/sale">Ofertas</Link>
                 <Link to="/category/news">Novedades</Link>
                 <Link to="/cart"><CarWidget /></Link>
-                <p>{carViewQnt}</p>
                 
             </nav>
         </header>

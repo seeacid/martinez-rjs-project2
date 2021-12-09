@@ -7,7 +7,8 @@ export function CartProvider( {children} ){
     const [onCarItems , setOnCarItems] = useState([])
     const [onCarAdd , setOnCarAdd] = useState()
     const [totalPrice , setTotalPrice] = useState(0)
-    const [carViewQnt , setCarViewQnt] = useState()
+    const [carViewQnt , setCarViewQnt] = useState(0)
+    const [carDisplay , setCarDisplay] = useState(false)
 
     const isOnCart = (product)=> {
         return onCarItems?.findIndex(item=> item.id === product.id)
@@ -31,6 +32,8 @@ export function CartProvider( {children} ){
         if(isOnCart(product) === -1){
             product.onCart=count
             setOnCarItems(onCarItems.concat(product))
+            cartViewCount(product)
+
 
         }else{
             for(let i = 0; i < onCarItems.length; i++){
@@ -39,8 +42,13 @@ export function CartProvider( {children} ){
 
                 }
            }
-            
+
         }
+
+        cartViewCount(product)
+        upCarDisplay()
+
+
         
     }
 
@@ -50,13 +58,25 @@ export function CartProvider( {children} ){
     const cartViewCount = (product)=>{
 
         let onCarQnt = 0
-        for(let i = 0; i < onCarItems.length; i++){
-            if(onCarItems[i].id === product.id[i]){
-              onCarQnt+=onCarItems[i].onCart 
-              setCarViewQnt(onCarQnt)
-              console.log(onCarQnt)
+
+        if(onCarItems.length === 0){
+
+            onCarQnt= product.onCart
+            setCarViewQnt(onCarQnt)
+            upCarDisplay()
+
+
+        }else{
+            for(let i = 0; i < onCarItems.length; i++){
+            
+                onCarQnt+=onCarItems[i].onCart 
+                setCarViewQnt(onCarQnt)
+                console.log(onCarQnt)      
             }
-       }
+        }
+
+        
+         
     }
 
     
@@ -66,14 +86,19 @@ export function CartProvider( {children} ){
         
         setOnCarItems(onCarItems.filter(item=> item.id !==product.id))
         setTotalPrice(totalPrice - (product.price*product.onCart))
-
-
+        setCarViewQnt(carViewQnt - product.onCart)
+        if(onCarItems.length===1){
+            setCarDisplay(false)
+            console.log(onCarItems.length)
+        }
+        
     }
 
     const addOne = (product)=>{
         console.log(product)
         product.onCart+=1        
         setOnCarAdd(product.onCart)
+        cartViewCount(product)
     }
 
     const removeOne =(product)=>{
@@ -83,10 +108,19 @@ export function CartProvider( {children} ){
         if(product.onCart===0){
             product.onCart=1
         }
+        cartViewCount(product)
+
     }
 
+    const upCarDisplay = ()=>{
+        setCarDisplay(true)      
+    }
+
+
+    
+
     return(
-        <CarContext.Provider value={{addToCartx , onCarItems ,deleteProduct,totalPrice,addTotalPrice,addOne,removeOne, cartViewCount ,carViewQnt}}>
+        <CarContext.Provider value={{addToCartx , onCarItems ,deleteProduct,totalPrice,addTotalPrice,addOne,removeOne, cartViewCount ,carViewQnt, carDisplay}}>
             {children}
         </CarContext.Provider>
     )
@@ -141,6 +175,10 @@ export function useCartViewCount(){
 
 export function useCarViewQnt(){
     return useContext(CarContext).carViewQnt
+}
+
+export function useCarDisplay(){
+    return useContext(CarContext).carDisplay
 }
 
 export default CarContext
