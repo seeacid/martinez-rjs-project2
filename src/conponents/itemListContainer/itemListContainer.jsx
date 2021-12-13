@@ -14,21 +14,20 @@ export function ItemListContainer(props){
     let productoss = []
 
     useEffect(() => {
-        setLoader(true)
-        const ref = collection(db , "products")
-        getDocs(ref)
-            .then((snapshot)=> {
-                productoss = snapshot.docs.map((doc)=>doc.data())
-                console.log(productoss)
-             })
-            .then(()=>{
-                catId ? setItem(productoss.filter((prod)=> productoss.category === catId))
-                : setItem(productoss)
-                console.log(items)
-            })
-            .finally( () => {
-                setLoader(false)
-            })
+        setLoader(true);
+        const myItems = catId
+          ? query(collection(db, 'products'), where('category', '==', catId))
+          : collection(db, 'products');
+    
+        getDocs(myItems)
+          .then((res) => {
+            const results = res.docs.map((doc) => {
+              return { ...doc.data(), id: doc.id };
+            });
+    
+            setItem(results);
+          })
+          .finally(() => setLoader(false));
       }, [catId]);
 
 
