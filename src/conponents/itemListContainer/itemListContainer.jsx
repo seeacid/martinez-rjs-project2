@@ -1,42 +1,38 @@
 import React, {useState, useEffect} from 'react'
 import "./index.css"
 import {ItemList} from "./Itemlist"
-import { products } from './Items'
 import { useParams } from 'react-router-dom'
 import loaderGid from "../assets/img/loader.gif"
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import db from '../firebase/firebase'
 
 export function ItemListContainer(props){
 
     const [items,setItem]=useState([])
     const [loader , setLoader] = useState(true)
     const { catId } = useParams()
-    console.log(catId)
+    let productoss = []
 
-
-    useEffect( () => {
+    useEffect(() => {
         setLoader(true)
-        const bringProducts = new Promise ((resolve, reject) =>{
-            setTimeout( ()=> {
-                resolve(products)
-            },200)
-        })
-
-        bringProducts
-            .then((res)=> {
-                catId ? setItem(res.filter((products) => products.category === catId))
-                : setItem (res)
+        const ref = collection(db , "products")
+        getDocs(ref)
+            .then((snapshot)=> {
+                productoss = snapshot.docs.map((doc)=>doc.data())
+                console.log(productoss)
+             })
+            .then(()=>{
+                catId ? setItem(productoss.filter((prod)=> productoss.category === catId))
+                : setItem(productoss)
+                console.log(items)
             })
+            .finally( () => {
+                setLoader(false)
+            })
+      }, [catId]);
 
-        .catch((error)=>{
-            console.log(error)
 
-        })
-        .finally( () => {
-            setLoader(false)
-        })
-
-    }, [catId])     
-  
+   
 
     return loader ? (
         <div className="loader">

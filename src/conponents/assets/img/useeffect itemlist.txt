@@ -1,0 +1,17 @@
+ setLoader(true)
+        const db = getFirestore()
+        const ref = collection(db , "products")
+        getDocs(ref)
+            .then((snapshot)=> {
+                productoss = snapshot.docs.map((doc)=>doc.data())
+                console.log(productoss)
+             })
+            .then(()=>{
+                catId ? setItem(productoss.filter((prod)=> productoss.category === catId))
+                : setItem(productoss)
+                console.log(items)
+            })
+            .finally( () => {
+                setLoader(false)
+            })
+            

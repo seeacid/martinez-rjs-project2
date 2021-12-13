@@ -5,8 +5,15 @@ import {ItemDetailContainer} from "./conponents/ItemDetailContainer/ItemDetailCo
 import { Cart } from './conponents/carWidget/Cart';
 import {BrowserRouter , Routes , Route } from "react-router-dom"
 import {CartProvider} from "./conponents/context/CartContext"
+import {getFirestore , collection , getDocs} from "firebase/firestore"
+import React, {useEffect} from 'react'
+
 
 function App() {
+
+    
+
+
     return (
         <BrowserRouter>
             <CartProvider>

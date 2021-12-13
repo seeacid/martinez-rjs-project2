@@ -3,6 +3,9 @@ import loaderGif from "../assets/img/loader.gif"
 import { products } from "../itemListContainer/Items"
 import { ItemDetail } from './ItemDetail'
 import { useParams } from 'react-router'
+import { doc , getDoc} from "firebase/firestore"
+import db from '../firebase/firebase'
+
 
 
 export const ItemDetailContainer = () => {
@@ -11,25 +14,31 @@ export const ItemDetailContainer = () => {
     const [goCart , setGocart ] = useState(false)
     const { prodId } = useParams()
     console.log(useParams )
-
-    
+    let productoss = []
 
     useEffect(() => {
-        setLoader(true)
-        const getProduct = new Promise( (res) => {
-            setTimeout ( () => {
-                res(products)
-            },200)
-        })
+        setLoader(true);
 
-        getProduct.then( (result) => {
-            prodId && setProduct(result.find(item => item.id === prodId))
-            
-        })
-        .finally( ()=> {
-            setLoader(false)
-        })
-    }, [prodId])
+        const myItem = doc(db, 'products', prodId);
+    
+        getDoc(myItem)
+          .then((res) => {
+            const result = { id: res.id, ...res.data() };
+            setProduct(result);
+            console.log(product)
+            console.log(res.data())
+          })
+          .finally(() => {
+            setLoader(false);
+          });
+          
+         
+         
+         
+      }, []);
+    
+
+   
 
     const addToCart = (cantidad) => {
         console.log({...product , Oncart: cantidad})

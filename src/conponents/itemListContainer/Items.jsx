@@ -27,6 +27,7 @@ export const products = [
         onCart: 0
         
     }
+
     ,
     {
         name: "Changed",
@@ -38,6 +39,8 @@ export const products = [
         onCart: 0
         
     }
+]
+    /*
     ,
     {
         name: "Stardead Throne",
@@ -61,3 +64,5 @@ export const products = [
         
     }
 ]
+
+*/
