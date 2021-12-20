@@ -10,6 +10,7 @@ export function CartProvider( {children} ){
     const [carViewQnt , setCarViewQnt] = useState(0)
     const [carDisplay , setCarDisplay] = useState(false)
     const [btnState , setBtnState] = useState(false)
+    const [modalState, setModalState] = useState(false)
 
 
     const isOnCart = (product)=> {
@@ -62,7 +63,6 @@ export function CartProvider( {children} ){
         }
     }
 
-    //REVISAR /////////////////////////////////////////////////////////////
 
     const cartViewCount = (product)=>{
 
@@ -124,15 +124,20 @@ export function CartProvider( {children} ){
         setCarDisplay(true)      
     }
 
+    const opClModal = ()=>{
+        setModalState(!modalState)
+        console.log(modalState)
+    }
 
     
 
     return(
-        <CarContext.Provider value={{addToCartx , onCarItems ,deleteProduct,totalPrice,addTotalPrice,addOne,removeOne, cartViewCount ,carViewQnt, carDisplay, btnState}}>
+        <CarContext.Provider value={{addToCartx , onCarItems ,deleteProduct,totalPrice,addTotalPrice,addOne,removeOne, cartViewCount ,carViewQnt, carDisplay, btnState,opClModal,modalState}}>
             {children}
         </CarContext.Provider>
     )
 
+    
     
     
     
@@ -193,6 +198,15 @@ export function useCarDisplay(){
     return useContext(CarContext).carDisplay
 }
 
+export function useOpClModal(){
+    return useContext(CarContext).opClModal
+}
+
+export function useModalState() {
+    return useContext(CarContext).modalState
+
+    
+}
 
 
 

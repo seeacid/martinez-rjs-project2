@@ -4,4 +4,78 @@
     box-sizing: border-box  ;
 }
 
+body{
+    background-color: black;
+}
+.modal{
+    background-color: white;
+    margin: auto;
+    width: 30vw;
+    border:1px solid black ;
+    margin-top: 5rem;
+    text-align: center;
+    border-radius: 10px;
+}
 
+
+
+input{
+    margin: 1rem;
+    border: none;
+    border-bottom: 2px solid rgb(182, 182, 182);
+    max-width: 100%;
+    width: 70%;
+    
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 1rem;
+}
+
+.modalBar{
+    background-color: black;
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+
+}
+
+.modalTitle{
+    color: white;
+    font-weight:10;
+    margin-top: .5rem;
+}
+
+.modalBar button{
+    margin: 0.5rem;
+}
+
+.buyBtn{
+    
+    background-color: black;
+    color: white;
+    outline: none;
+    box-shadow: none;
+    border: none ;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: .5rem;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+form{
+    text-align: left;
+}

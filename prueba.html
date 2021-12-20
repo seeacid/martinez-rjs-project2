@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="prueba.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="prueba.css">
     <title>Document</title>
 </head>
 <body>
-    <table>
-        <thead>
-            <tr class="titlerow">
-                <th>Remove</th>
-                <th>Imagen</th>
-                <th>Product</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr >
-                <th><button class="removeBtn">x</button></th>
-                <th><img src="1.png" width="70px" alt=""></th>
-                <th>Terror Never Ends</th>
-                <th>$1390</th>
-                <th>
-                    <div>
-                        <button class="addBtn">-</button>
-                        <p class="countNum">0</p>
-                        <button class="addBtn">+</button>
-                    </div>
-                </th>
-                <th>$1390</th>
-            </tr>
-
+    <div class="modal">
+        <div class="modalBar">
+            <p class="modalTitle">Formulario de compra</p>
+            <button>X</button>
+        </div>
+        <form action="">
+            <p>Nombre</p>
+            <input type="text" ">
+            <p>Apellido</p>
+            <input type="text" ">
+            <p>Provincia</p>
+            <input type="text" ">
+            <p>Localidad</p>
+            <input type="text" ">
+            <p>Direccion</p>
+            <input type="text" ">
+            <p>Email</p>
+            <input type="email" ">
+            <p>Telefono</p>
+            <input type="tel"  ">
             
-        </tbody>
-    </table>
+        </form>
+
+        <button class="buyBtn">Terminar Compra</button>
+    </div>
 </body>
 </html>
-
-

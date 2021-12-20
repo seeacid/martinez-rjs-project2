@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box  ;
+}
+
+body{
+    background-color: black;
+}
+.modal{
+    background-color: white;
+    margin: auto;
+    width: 30vw;
+    border:1px solid black ;
+    margin-top: 5rem;
+    text-align: center;
+    border-radius: 10px;
+    position:absolute;
+    top: 5%;
+    left: 30%;
+    
+    
+}
+
+
+
+input{
+    margin: 1rem;
+    border: none;
+    border-bottom: 2px solid rgb(182, 182, 182);
+    max-width: 100%;
+    width: 70%;
+    
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+form p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 1rem;
+    color: black;
+}
+
+.modalBar{
+    background-color: black;
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+
+}
+
+.modalTitle{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    font-weight:10;
+    margin-top: .5rem;
+    margin-left: .5rem;
+}
+
+.modalBar button{
+    margin: 0.5rem;
+}
+
+.buyBtn{
+    
+    background-color: black;
+    color: white;
+    outline: none;
+    box-shadow: none;
+    border: none ;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: .5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: .8em;
+    cursor: pointer;
+}
+
+form{
+    text-align: left;
+}
