@@ -29,11 +29,11 @@ export function CartProvider( {children} ){
 
     const addToCartx = (product,count) => {
 
+        console.log("se llamo addToCartX")  
 
         if(isOnCart(product) === -1){
             product.onCart=count
             setOnCarItems(onCarItems.concat(product))
-            cartViewCount(product)
 
 
         }else{
@@ -45,14 +45,15 @@ export function CartProvider( {children} ){
            }
 
         }
-
-        cartViewCount(product)
         upCarDisplay()
         changeBtnStatus(product)
+        cartViewCount(product)
+
 
         
     }
 
+    
 
     const changeBtnStatus = (product)=>{
         if(product.onCart !== 0){
@@ -73,6 +74,11 @@ export function CartProvider( {children} ){
             onCarQnt= product.onCart
             setCarViewQnt(onCarQnt)
             upCarDisplay()
+            console.log(onCarQnt)
+            console.log("se llamo carviewcount en IF")  
+            console.log(`oncarQnt: ${onCarQnt} --- CarViewCount : ${carViewQnt}`)  
+
+
 
 
         }else{
@@ -80,6 +86,10 @@ export function CartProvider( {children} ){
             
                 onCarQnt+=onCarItems[i].onCart 
                 setCarViewQnt(onCarQnt)
+                console.log(onCarQnt)
+                console.log("se llamo carviewcount en else")  
+                console.log(`oncarQnt: ${onCarQnt} --- CarViewCount : ${carViewQnt}`)  
+
             }
         }
 
@@ -107,6 +117,10 @@ export function CartProvider( {children} ){
     const addOne = (product)=>{
         product.onCart+=1        
         setOnCarAdd(product.onCart)
+        if(product.onCart>product.stock){
+            product.onCart = product.stock
+            alert("No hay suficientes unidades")
+        }
         cartViewCount(product)
     }
 
@@ -121,7 +135,8 @@ export function CartProvider( {children} ){
     }
 
     const upCarDisplay = ()=>{
-        setCarDisplay(true)      
+        setCarDisplay(true)    
+        console.log("se llamo Upcardisplay")  
     }
 
     const opClModal = ()=>{

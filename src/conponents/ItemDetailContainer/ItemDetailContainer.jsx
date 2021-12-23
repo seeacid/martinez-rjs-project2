@@ -4,17 +4,17 @@ import { products } from "../itemListContainer/Items"
 import { ItemDetail } from './ItemDetail'
 import { useParams } from 'react-router'
 import { doc , getDoc} from "firebase/firestore"
+import {useAddtoCartx} from '../context/CartContext'
 import db from '../firebase/firebase'
 
 
 
 export const ItemDetailContainer = () => {
+    const addToCartx = useAddtoCartx()
     const [product, setProduct] = useState({})
     const [loader , setLoader] = useState(true)
     const [goCart , setGocart ] = useState(false)
     const { prodId } = useParams()
-    console.log(useParams )
-    let productoss = []
 
     useEffect(() => {
         setLoader(true);
@@ -25,8 +25,6 @@ export const ItemDetailContainer = () => {
           .then((res) => {
             const result = { id: res.id, ...res.data() };
             setProduct(result);
-            console.log(product)
-            console.log(res.data())
           })
           .finally(() => {
             setLoader(false);
@@ -41,7 +39,9 @@ export const ItemDetailContainer = () => {
    
 
     const addToCart = (cantidad) => {
-        console.log({...product , Oncart: cantidad})
+        console.log("se llamo AddTocart en IDC")  
+
+        addToCartx(product,cantidad)
         setGocart(true)
 
         

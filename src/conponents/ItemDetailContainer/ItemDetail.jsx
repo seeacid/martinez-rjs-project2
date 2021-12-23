@@ -6,7 +6,7 @@ import {useBtnState} from "../context/CartContext"
 import "./ItemDetail.css"
 
 
-export const ItemDetail = ({id , name , img , price, stock ,addToCart , goCart}) => {
+export const ItemDetail = ({id , name , img , price, stock ,addToCart , goCart  }) => {
 
    let btnState = useBtnState()
 
@@ -24,7 +24,7 @@ export const ItemDetail = ({id , name , img , price, stock ,addToCart , goCart})
 
             <h2>${price}</h2>
             <p>Unidades disponibles:{stock}</p>
-            {btnState ? (<> <Link to="/cart"> <button className="itemDetailButton">Terminar Compra</button> </Link> </>)
+            {goCart? (<> <Link to="/cart"> <button className="itemDetailButton">Terminar Compra</button> </Link> </>)
             :
             (<> <ItemCount item={{id,name,img,price,stock}} stock={stock} initial={0} addToCart={addToCart} /> </>)}
             
