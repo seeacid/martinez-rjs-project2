@@ -4,17 +4,22 @@ import { products } from "../itemListContainer/Items"
 import { ItemDetail } from './ItemDetail'
 import { useParams } from 'react-router'
 import { doc , getDoc} from "firebase/firestore"
-import {useAddtoCartx} from '../context/CartContext'
+import {useAddtoCartx , useCartViewCount} from '../context/CartContext'
 import db from '../firebase/firebase'
 
 
 
 export const ItemDetailContainer = () => {
+    const cartViewCount = useCartViewCount()
     const addToCartx = useAddtoCartx()
     const [product, setProduct] = useState({})
     const [loader , setLoader] = useState(true)
     const [goCart , setGocart ] = useState(false)
     const { prodId } = useParams()
+
+
+    cartViewCount()
+
 
     useEffect(() => {
         setLoader(true);

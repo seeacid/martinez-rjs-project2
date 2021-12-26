@@ -4,6 +4,8 @@ const CarContext = React.createContext()
 
 export function CartProvider( {children} ){
 
+
+
     const [onCarItems , setOnCarItems] = useState([])
     const [onCarAdd , setOnCarAdd] = useState()
     const [totalPrice , setTotalPrice] = useState(0)
@@ -11,6 +13,8 @@ export function CartProvider( {children} ){
     const [carDisplay , setCarDisplay] = useState(false)
     const [btnState , setBtnState] = useState(false)
     const [modalState, setModalState] = useState(false)
+
+
 
 
     const isOnCart = (product)=> {
@@ -42,14 +46,16 @@ export function CartProvider( {children} ){
                     onCarItems[i].onCart += count
 
                 }
+                setOnCarItems([ ...onCarItems ])
+
            }
 
         }
-        upCarDisplay()
+        
         changeBtnStatus(product)
-        cartViewCount(product)
-
-
+        upCarDisplay()
+        console.log(product.onCart)
+        console.log(onCarItems)
         
     }
 
@@ -65,34 +71,17 @@ export function CartProvider( {children} ){
     }
 
 
-    const cartViewCount = (product)=>{
+    const cartViewCount = ()=>{
 
         let onCarQnt = 0
 
-        if(onCarItems.length === 0){
-
-            onCarQnt= product.onCart
+        for (let i = 0; i < onCarItems.length; i++) {
+            onCarQnt = onCarQnt + onCarItems[i].onCart
             setCarViewQnt(onCarQnt)
-            upCarDisplay()
-            console.log(onCarQnt)
-            console.log("se llamo carviewcount en IF")  
-            console.log(`oncarQnt: ${onCarQnt} --- CarViewCount : ${carViewQnt}`)  
-
-
-
-
-        }else{
-            for(let i = 0; i < onCarItems.length; i++){
-            
-                onCarQnt+=onCarItems[i].onCart 
-                setCarViewQnt(onCarQnt)
-                console.log(onCarQnt)
-                console.log("se llamo carviewcount en else")  
-                console.log(`oncarQnt: ${onCarQnt} --- CarViewCount : ${carViewQnt}`)  
-
-            }
         }
+        console.log(onCarQnt)
 
+        
         
          
     }
