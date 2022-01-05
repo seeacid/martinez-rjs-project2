@@ -11,7 +11,6 @@ export function ItemListContainer(props){
     const [items,setItem]=useState([])
     const [loader , setLoader] = useState(true)
     const { catId } = useParams()
-    let productoss = []
 
     useEffect(() => {
         setLoader(true);

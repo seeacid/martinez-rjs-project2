@@ -3,9 +3,7 @@ import "./Cart.css"
 import { useOpClModal , useOnCarItems,useTotalPrice } from '../context/CartContext'
 import db from '../firebase/firebase'
 import { addDoc, collection } from 'firebase/firestore'
-import { Fragment, useState } from 'react/cjs/react.development'
-import { products } from '../itemListContainer/Items'
-import { contains } from '@firebase/util'
+import { useState } from 'react/cjs/react.development'
 
 
 
@@ -17,7 +15,6 @@ export function CartForm(){
     function validarEmail(email){
         var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
         emailValido = expReg.test(email) 
-        console.log(emailValido)
     }
     
     const [buyerInfo, setBuyerInfo] = useState({ nombre: '', apellido: '', provincia: '', localidad: '', direccion: '', email: '', emailc:'', telefono: '' });
@@ -35,10 +32,9 @@ export function CartForm(){
     
     const comprar = ()=>{
         validarEmail(buyerInfo.email)
-        console.log(emailValido,buyerInfo.email,buyerInfo.emailc)
 
         let fecha = new Date()
-        if(emailValido==true && buyerInfo.email===buyerInfo.emailc){
+        if(emailValido===true && buyerInfo.email===buyerInfo.emailc){
             
 
             var newOrder = {
@@ -98,7 +94,7 @@ export function CartForm(){
                 
             </form>
 
-            <button 
+            <button className='buyBtn' 
             disabled={
                 !(
                   buyerInfo.nombre !== '' &&

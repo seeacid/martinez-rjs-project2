@@ -1,6 +1,6 @@
 import "./index.css"
-import { useOnCarItems , useCarDisplay,useCarViewQnt } from '../context/CartContext'
-import React, {useState} from 'react'
+import { useCarDisplay,useCarViewQnt } from '../context/CartContext'
+import React from 'react'
 
 
 

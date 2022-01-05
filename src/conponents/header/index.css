@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+
 
 .headder-wrapper {
     background-color: black;
@@ -5,7 +8,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100vw;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -20,9 +23,8 @@
 }
 
 .logo-wrapper p {
-    font-family: 'Oswald', sans-serif;
     padding-left: 1rem;
-    font-weight: bold;
+    font-weight: lighter;
     display: inline-block;
     font-size: 20pt;
     vertical-align:super
@@ -81,11 +83,14 @@ nav a:hover {
         margin: auto;
     }
     .logo-wrapper p {
-        font-family: 'Oswald', sans-serif;
-        padding-left: 1rem;
-        font-weight: bold;
         display: block;
-        font-size: 20pt;
         text-align: center;
     }
+
+    .greetings{
+        flex-direction: column;
+    }
+    
+
+    
 }

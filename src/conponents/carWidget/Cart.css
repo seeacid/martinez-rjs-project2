@@ -1,12 +1,6 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box  ;
-}
 
-body{
-    background-color: black;
-}
+
+
 .modal{
     background-color: white;
     margin: auto;
@@ -88,4 +82,14 @@ form p{
 
 form{
     text-align: left;
+}
+
+
+@media (max-width: 700px){
+
+    .modal{
+        width: 100vw;
+        left: 0;
+        margin-bottom: 3rem;
+    }
 }

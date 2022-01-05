@@ -1,6 +1,5 @@
 import React , {useState,useEffect} from 'react'
 import loaderGif from "../assets/img/loader.gif"
-import { products } from "../itemListContainer/Items"
 import { ItemDetail } from './ItemDetail'
 import { useParams } from 'react-router'
 import { doc , getDoc} from "firebase/firestore"
@@ -44,7 +43,6 @@ export const ItemDetailContainer = () => {
    
 
     const addToCart = (cantidad) => {
-        console.log("se llamo AddTocart en IDC")  
 
         addToCartx(product,cantidad)
         setGocart(true)

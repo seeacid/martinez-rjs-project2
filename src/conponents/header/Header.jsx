@@ -2,8 +2,7 @@ import React from "react";
 import './index.css';
 import logo from "./starlogo.png"
 import { CarWidget } from "../carWidget/CarWidget";
-import { NavLink , Link } from "react-router-dom";
-import {useOnCarItems , useCartViewCount , useCarViewQnt} from "../context/CartContext"
+import { Link } from "react-router-dom";
 
 
 
@@ -11,14 +10,13 @@ import {useOnCarItems , useCartViewCount , useCarViewQnt} from "../context/CartC
 
 export function Header(){
 
-    const onCarItems = useOnCarItems()
     
 
     return(
         <header className="headder-wrapper">
             <Link to="/" className="logo-wrapper">
                 <img className="logo" src={logo} alt="" />
-                <p>Stardead</p>
+                <p className="titleText">Stardead</p>
             </Link>
             <nav>
                 <Link to="/">Productos</Link>

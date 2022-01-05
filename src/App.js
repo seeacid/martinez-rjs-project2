@@ -5,9 +5,8 @@ import {ItemDetailContainer} from "./conponents/ItemDetailContainer/ItemDetailCo
 import { Cart } from './conponents/carWidget/Cart';
 import {BrowserRouter , Routes , Route } from "react-router-dom"
 import {CartProvider} from "./conponents/context/CartContext"
-import {getFirestore , collection , getDocs} from "firebase/firestore"
-import React, {useEffect} from 'react'
-
+import React from 'react'
+import {Footer} from "./conponents/footer/Footer"
 
 function App() {
 
@@ -34,7 +33,7 @@ function App() {
 
                 </Routes>
             </CartProvider>
-
+            <Footer />
         </BrowserRouter> 
         
     

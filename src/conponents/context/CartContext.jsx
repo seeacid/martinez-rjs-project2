@@ -16,7 +16,6 @@ export function CartProvider( {children} ){
 
 
 
-
     const isOnCart = (product)=> {
         return onCarItems?.findIndex(item=> item.id === product.id)
     }
@@ -33,7 +32,6 @@ export function CartProvider( {children} ){
 
     const addToCartx = (product,count) => {
 
-        console.log("se llamo addToCartX")  
 
         if(isOnCart(product) === -1){
             product.onCart=count
@@ -54,8 +52,7 @@ export function CartProvider( {children} ){
         
         changeBtnStatus(product)
         upCarDisplay()
-        console.log(product.onCart)
-        console.log(onCarItems)
+
         
     }
 
@@ -79,7 +76,6 @@ export function CartProvider( {children} ){
             onCarQnt = onCarQnt + onCarItems[i].onCart
             setCarViewQnt(onCarQnt)
         }
-        console.log(onCarQnt)
 
         
         
@@ -125,12 +121,10 @@ export function CartProvider( {children} ){
 
     const upCarDisplay = ()=>{
         setCarDisplay(true)    
-        console.log("se llamo Upcardisplay")  
     }
 
     const opClModal = ()=>{
         setModalState(!modalState)
-        console.log(modalState)
     }
 
     

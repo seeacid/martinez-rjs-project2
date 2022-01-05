@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useOnCarItems ,useDeleteProduct,useAddTotalPrice,useTotalPrice,useAddOne, useRemoveOne,useCarViewQnt,useOpClModal,useModalState} from '../context/CartContext'
 import "./Cart.css"
 import { Link } from 'react-router-dom'
@@ -21,12 +21,9 @@ export function Cart(){
     const modalState = useModalState()
 
 
-    let coco = true
     addTotalPrice()
 
-    const addTo = ()=>{
-        console.log(carViewQnt)
-    }
+
    
 
     return  carViewQnt ? (

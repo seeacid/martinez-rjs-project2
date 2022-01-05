@@ -1,14 +1,12 @@
 import React from 'react'
 import { ItemCount } from '../itemCount/ItemCount'
-import { NavLink , Link ,} from "react-router-dom";
-import {useBtnState} from "../context/CartContext"
+import {Link} from "react-router-dom";
 
 import "./ItemDetail.css"
 
 
 export const ItemDetail = ({id , name , img , price, stock ,addToCart , goCart  }) => {
 
-   let btnState = useBtnState()
 
     return(
         <div className="itemDetailWrapper">

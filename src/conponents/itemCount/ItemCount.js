@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react'
-import {useAddtoCartx} from '../context/CartContext'
+import React, {  useState } from 'react'
 import "./index.css"
 
 
@@ -11,7 +10,6 @@ export function ItemCount({stock,addToCart}){
 
 
 
-    const addToCartx = useAddtoCartx()
 
     const addState = () => {
         if(stateItem<stockItems){
